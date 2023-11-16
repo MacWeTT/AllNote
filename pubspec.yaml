@@ -1,0 +1,36 @@
+name: AllNote
+description: When your regular notes app isn't enough.
+
+publish_to: "none"
+
+version: 0.0.1
+
+environment:
+  sdk: ">=3.1.5 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - data/quotes.json
+
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand/static/Quicksand-Bold.ttf
+        - asset: assets/fonts/Quicksand/static/Quicksand-Light.ttf
+        - asset: assets/fonts/Quicksand/static/Quicksand-Medium.ttf
+        - asset: assets/fonts/Quicksand/static/Quicksand-Regular.ttf
+        - asset: assets/fonts/Quicksand/static/Quicksand-SemiBold.ttf
