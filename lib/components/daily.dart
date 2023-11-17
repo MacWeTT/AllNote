@@ -8,80 +8,105 @@ class Daily extends StatefulWidget {
 }
 
 class DailyState extends State<Daily> {
-  List<bool> taskStatus = [false, false, false];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.black, width: 2),
-      ),
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Daily Tasks",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Quicksand',
+          ),
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "Daily Tasks",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Quicksand',
+            Container(
+              height: 130,
+              width: MediaQuery.of(context).size.width * 0.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.black, width: 1),
+              ),
+              child: const Column(
+                children: <Widget>[
+                  Row(
+                    children: [
+                      Text("Urgent"),
+                      Text("Important")
+                    ],
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 130,
-                  width: 130,
-                  margin: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: Colors.black, width: 1),
+            Container(
+              height: 130,
+              width: MediaQuery.of(context).size.width * 0.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.black, width: 1),
+              ),
+              child: const Column(
+                children: <Widget>[
+                  Row(
+                    children: [
+                      Text("Not Urgent"),
+                      Text("Important")
+                    ],
                   ),
-                ),
-                Container(
-                  height: 130,
-                  width: 130,
-                  margin: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: Colors.black, width: 1),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 130,
-                  width: 130,
-                  margin: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: Colors.black, width: 1),
-                  ),
-                ),
-                Container(
-                  height: 130,
-                  width: 130,
-                  margin: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: Colors.black, width: 1),
-                  ),
-                ),
-              ],
-            )
           ],
         ),
-      ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 130,
+              width: MediaQuery.of(context).size.width * 0.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.black, width: 1),
+              ),
+              child: const Column(
+                children: <Widget>[
+                  Row(
+                    children: [
+                      Text("Urgent"),
+                      Text("Unimportant")
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 130,
+              width: MediaQuery.of(context).size.width * 0.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.black, width: 1),
+              ),
+              child: const Column(
+                children: <Widget>[
+                  Row(
+                    children: [
+                      Text("Not Urgent"),
+                      Text("Unimportant")
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }

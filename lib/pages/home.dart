@@ -14,32 +14,34 @@ class Home extends StatelessWidget {
         title: Text(
           title,
           style: const TextStyle(
-            fontFamily: 'Quicksand',
             fontWeight: FontWeight.w600,
             fontSize: 24,
           ),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Settings',
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('This is a snack-bar')),
-              );
-            },
+      ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Quote(),
+            Daily(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
           ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              label: "Add Note",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Settings"
+          )
         ],
-      ),
-      body: const Column(
-        children: <Widget>[
-          Quote(),
-          Daily(),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
       ),
     );
   }

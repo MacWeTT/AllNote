@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:math';
+import 'dart:convert';
 
 class QuoteService {
   static Future<String> getRandomQuote() async {
-    // String data = await rootBundle.loadString('data/quotes.json');
-    // print("Raw Data: $data");
-    //
-    // List<String> quotes = List<String>.from(json.decode(data));
-    // print("Decoded Data: $quotes");
-
-    final List<String> quotes = [
-      "Thieves don't break into empty houses.",
-      "Success is not final, failure is not fatal: It is the courage to continue that counts.",
-      "The only way to do great work is to love what you do.",
-      "In three words I can sum up everything I've learned about life: it goes on.",
-      "Believe you can and you're halfway there.",
-      "The only limit to our realization of tomorrow will be our doubts of today.",
-      "Thieves don't break into empty houses.",
-      "Your time is limited, don't waste it living someone else's life.",
-      "The only way to do great work is to love what you do.",
-      "Success is not final, failure is not fatal: It is the courage to continue that counts."
-    ];
+    String data = await rootBundle.loadString('data/quotes.json');
+    List<String> quotes = List<String>.from(json.decode(data));
 
     int index = Random().nextInt(quotes.length);
     return quotes[index];
@@ -100,9 +86,9 @@ class QuoteState extends State<Quote> {
               return Expanded(
                 child: Container(
                   margin: const EdgeInsets.all(10),
-                  constraints: const BoxConstraints.expand(
+                  constraints: BoxConstraints.expand(
                     width: double.infinity,
-                    height: 80,
+                    height: MediaQuery.of(context).size.height * 0.1,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -127,15 +113,25 @@ class QuoteState extends State<Quote> {
           },
         ),
         Positioned(
-          bottom: 8,
-          right: 8,
-          child: IconButton(
-            padding: const EdgeInsets.all(0),
-            onPressed: _refreshQuote,
-            tooltip: 'Refresh Quote',
-            icon: const Icon(Icons.refresh),
-          ),
-        ),
+            bottom: 10,
+            right: 8,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: InkWell(
+                onTap: _refreshQuote,
+                customBorder: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Icon(Icons.refresh),
+              ),
+            )
+            // child: IconButton(
+            //   constraints: const BoxConstraints(),
+            //   onPressed: _refreshQuote,
+            //   tooltip: 'Refresh Quote',
+            //   icon: const Icon(Icons.refresh),
+            // ),
+            ),
       ],
     );
   }

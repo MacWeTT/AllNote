@@ -12,6 +12,7 @@ class Application extends StatelessWidget {
       title: "AllNote",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: "Quicksand",
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellowAccent),
       ),
       home: const Home(title: "AllNote"),
