@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AddPage extends StatelessWidget {
   const AddPage({Key? key, required this.title}) : super(key: key);
@@ -36,11 +37,11 @@ class AddPage extends StatelessWidget {
         ],
         onTap: (value) => {
           if (value == 0)
-            Navigator.pushNamed(context, '/')
+            GoRouter.of(context).go("/")
           else if (value == 1)
-            Navigator.pushNamed(context, "/add")
+            GoRouter.of(context).go("/add")
           else if (value == 2)
-            Navigator.pushNamed(context, "/settings")
+            GoRouter.of(context).go("/settings")
         },
       ),
     );

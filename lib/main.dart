@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/home.dart';
+import 'router.dart';
 
 void main() => runApp(const Application());
 
@@ -8,14 +8,14 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       title: "AllNote",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Quicksand",
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellowAccent),
       ),
-      home: const Home(title: "AllNote"),
     );
   }
 }

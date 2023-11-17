@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:AllNote/components/quote.dart';
-import 'package:AllNote/components/daily.dart';
+import 'package:allnote/widgets/quote.dart';
+import 'package:allnote/widgets/daily.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key, required this.title}) : super(key: key);
+import 'package:go_router/go_router.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -30,18 +32,23 @@ class Home extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
+            icon: Icon(Icons.home),
+            label: "Home",
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: "Add Note",
+            icon: Icon(Icons.add),
+            label: "Add Note",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings"
-          )
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
         ],
+        onTap: (value) => {
+          if (value == 0)
+            GoRouter.of(context).go("/")
+          else if (value == 1)
+            GoRouter.of(context).go("/add")
+          else if (value == 2)
+            GoRouter.of(context).go("/settings")
+        },
       ),
     );
   }
