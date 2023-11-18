@@ -71,9 +71,9 @@ class QuoteState extends State<Quote> {
             } else {
               return Container(
                 margin: const EdgeInsets.all(10),
-                constraints: BoxConstraints.expand(
+                constraints: const BoxConstraints.expand(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: 80,
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:allnote/components/urgency_box.dart';
 
 class Daily extends StatefulWidget {
   const Daily({Key? key}) : super(key: key);
@@ -8,101 +9,40 @@ class Daily extends StatefulWidget {
 }
 
 class DailyState extends State<Daily> {
-
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Daily Tasks",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Quicksand',
+        Container(
+          padding: const EdgeInsets.only(left: 10),
+          child: const Text(
+            "Daily Tasks",
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        const Row(
           children: [
-            Container(
-              height: 130,
-              width: MediaQuery.of(context).size.width * 0.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(color: Colors.black, width: 1),
-              ),
-              child: const Column(
-                children: <Widget>[
-                  Row(
-                    children: [
-                      Text("Urgent"),
-                      Text("Important")
-                    ],
-                  ),
-                ],
-              ),
+            UrgencyBox(
+              urgencyList: ['Urgent', 'Important'],
             ),
-            Container(
-              height: 130,
-              width: MediaQuery.of(context).size.width * 0.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(color: Colors.black, width: 1),
-              ),
-              child: const Column(
-                children: <Widget>[
-                  Row(
-                    children: [
-                      Text("Not Urgent"),
-                      Text("Important")
-                    ],
-                  ),
-                ],
-              ),
+            UrgencyBox(
+              urgencyList: ['Not Urgent', 'Important'],
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        const Row(
           children: [
-            Container(
-              height: 130,
-              width: MediaQuery.of(context).size.width * 0.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(color: Colors.black, width: 1),
-              ),
-              child: const Column(
-                children: <Widget>[
-                  Row(
-                    children: [
-                      Text("Urgent"),
-                      Text("Unimportant")
-                    ],
-                  ),
-                ],
-              ),
+            UrgencyBox(
+              urgencyList: ['Urgent', 'Not Important'],
             ),
-            Container(
-              height: 130,
-              width: MediaQuery.of(context).size.width * 0.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(color: Colors.black, width: 1),
-              ),
-              child: const Column(
-                children: <Widget>[
-                  Row(
-                    children: [
-                      Text("Not Urgent"),
-                      Text("Unimportant")
-                    ],
-                  ),
-                ],
-              ),
+            UrgencyBox(
+              urgencyList: ['Not Urgent', 'Not Important'],
             ),
           ],
         )

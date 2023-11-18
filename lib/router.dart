@@ -8,7 +8,7 @@ import 'pages/settings.dart';
 
 final navItems = [
   const BottomNavigationBarItem(
-    icon: Icon(Icons.home),
+    icon: Icon(Icons.home_outlined),
     label: "Home",
   ),
   const BottomNavigationBarItem(
@@ -37,7 +37,16 @@ final GoRouter router = GoRouter(
         ],
         builder: (context, state, child) {
           return Scaffold(
-            appBar: AppBar(title: const Text('AllNote')),
+            appBar: AppBar(
+              title: const Text(
+                'AllNote',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              backgroundColor: Colors.yellow[600],
+            ),
             body: child,
             bottomNavigationBar: BottomNavigationBar(
                 items: navItems,
