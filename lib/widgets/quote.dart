@@ -1,17 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'dart:math';
-import 'dart:convert';
-
-class QuoteService {
-  static Future<String> getRandomQuote() async {
-    String data = await rootBundle.loadString('data/quotes.json');
-    List<String> quotes = List<String>.from(json.decode(data));
-
-    int index = Random().nextInt(quotes.length);
-    return quotes[index];
-  }
-}
+import 'package:allnote/services/quote_service.dart';
 
 class Quote extends StatefulWidget {
   const Quote({Key? key}) : super(key: key);
@@ -44,23 +32,21 @@ class QuoteState extends State<Quote> {
           initialData: "Fetching quotes...",
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Expanded(
+              return Container(
+                margin: const EdgeInsets.all(10),
+                constraints: const BoxConstraints.expand(
+                  width: double.infinity,
+                  height: 80,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                ),
                 child: Container(
-                  margin: const EdgeInsets.all(10),
-                  constraints: const BoxConstraints.expand(
-                    width: double.infinity,
-                    height: 80,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                  ),
+                  padding: const EdgeInsets.all(8),
                 ),
               );
             } else if (snapshot.hasError) {
@@ -83,28 +69,26 @@ class QuoteState extends State<Quote> {
                 ],
               );
             } else {
-              return Expanded(
+              return Container(
+                margin: const EdgeInsets.all(10),
+                constraints: BoxConstraints.expand(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                ),
                 child: Container(
-                  margin: const EdgeInsets.all(10),
-                  constraints: BoxConstraints.expand(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      snapshot.data ?? "No quote available",
-                      style: const TextStyle(
-                        fontFamily: 'Quicksand',
-                        fontWeight: FontWeight.w600,
-                      ),
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    snapshot.data ?? "No quote available",
+                    style: const TextStyle(
+                      fontFamily: 'Quicksand',
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),

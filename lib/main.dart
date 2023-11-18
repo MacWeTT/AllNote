@@ -9,13 +9,13 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: router,
-      title: "AllNote",
       debugShowCheckedModeBanner: false,
+      title: "AllNote",
       theme: ThemeData(
         fontFamily: "Quicksand",
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellowAccent),
       ),
+      routerConfig: router,
     );
   }
 }
