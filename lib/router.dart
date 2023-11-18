@@ -13,7 +13,7 @@ final navItems = [
   ),
   const BottomNavigationBarItem(
     icon: Icon(Icons.add),
-    label: "Add Note",
+    label: "Add",
   ),
   const BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
 ];
@@ -28,7 +28,7 @@ final GoRouter router = GoRouter(
           ),
           GoRoute(
             path: '/add',
-            builder: (context, state) => const AddPage(title: "Add Note"),
+            builder: (context, state) => const AddPage(title: "Add"),
           ),
           GoRoute(
             path: '/settings',
@@ -37,16 +37,6 @@ final GoRouter router = GoRouter(
         ],
         builder: (context, state, child) {
           return Scaffold(
-            appBar: AppBar(
-              title: const Text(
-                'AllNote',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              backgroundColor: Colors.yellow[600],
-            ),
             body: child,
             bottomNavigationBar: BottomNavigationBar(
                 items: navItems,

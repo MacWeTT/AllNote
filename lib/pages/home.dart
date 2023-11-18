@@ -8,8 +8,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'AllNote',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.yellow[600],
+      ),
+      body: const Column(
         children: <Widget>[
           Quote(),
           Daily(),

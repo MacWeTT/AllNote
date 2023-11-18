@@ -30,9 +30,11 @@ class DailyState extends State<Daily> {
           children: [
             UrgencyBox(
               urgencyList: ['Urgent', 'Important'],
+              tasks: ['Workout', 'Assignment'],
             ),
             UrgencyBox(
               urgencyList: ['Not Urgent', 'Important'],
+              tasks: ['Study for GATE', 'Go Gym'],
             ),
           ],
         ),
@@ -40,9 +42,11 @@ class DailyState extends State<Daily> {
           children: [
             UrgencyBox(
               urgencyList: ['Urgent', 'Not Important'],
+              tasks: ['Workout', 'Go Gym'],
             ),
             UrgencyBox(
               urgencyList: ['Not Urgent', 'Not Important'],
+              tasks: ['Play Video Games', 'Go Gym'],
             ),
           ],
         )
