@@ -25,7 +25,7 @@ class DailyState extends State<Daily> {
             ),
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 4),
         const Row(
           children: [
             UrgencyBox(

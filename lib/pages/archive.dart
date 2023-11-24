@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-//Widgets
-import 'package:allnote/widgets/quote.dart';
-import 'package:allnote/widgets/daily.dart';
-import 'package:allnote/widgets/notes.dart';
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+class ArchivePage extends StatelessWidget {
   final String title;
+  const ArchivePage({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +22,7 @@ class HomePage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                children: <Widget>[
-                  Quote(),
-                  Daily(),
-                  Notes(),
-                ],
+                children: <Widget>[],
               ),
             ),
           ),

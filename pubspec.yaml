@@ -27,6 +27,7 @@ flutter:
 
   assets:
     - data/quotes.json
+    - data/notes.json
 
   fonts:
     - family: Quicksand
